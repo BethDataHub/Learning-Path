@@ -1,0 +1,28 @@
+from aocd import get_data, submit
+
+session = ''
+day = 1
+year = 2018
+
+file = get_data(session =session,day = day,year = year).split('\n')
+
+
+def part_one():
+    start = 0
+    for row in file:
+        start+=int(row)
+    return start
+
+submit(part_one(),part="a", day = day, year = year, session = session)
+
+def part_two():
+    start = 0
+    frequencies = {start}
+    while True:
+        for row in file:
+            start += int(row)
+            if start in frequencies:
+                return start
+            frequencies.add(start)
+
+submit(part_two(),part="b", day = day, year = year, session = session)
