@@ -1,3 +1,9 @@
 import qrcode
-img = qrcode.make("https://www.linkedin.com/in/be-thanymarshall/")
+from PIL import Image
+
+link=input("Input the link to use for the qr code: ")
+img = qrcode.make(link)
 img.save("LinkedIn.jpg")
+
+img = Image.open('LinkedIn.jpg')
+img.show() 
